@@ -25,15 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>debug = 1;           // Testing only, make debug = -1 to disable debugging mode
-randomize();         // Randomize seed
-sound_volume(all,0.5); // Lower volume during testing
-
-// Testing - Putting the window screen on the left screen
-right_screen = 0;
-if right_screen == 1 {
-       window_set_position(2560+(1680/2)-floor(window_get_width())/2,64);
-}
+            <string>debug = false; // Testing only, make debug = -1 to disable debugging mode
+randomize(); // Randomize seed
+sound_volume(all, 0.5); // Force lower volume during testing
 
 // Play looping music
 // I think this should be put at the beginning of the game level
@@ -48,7 +42,7 @@ volume_music = 1;    // Volume level for just music
 volume_sound = 1;    // Volume level for just sound effects
 volume_mute = 0;     // Boolean for muting all sounds*/
 
-room_speed = 60;     // Setting room_speed
+room_speed = 60;     // 60 FPS
 
 // Creating walls
 if room = room0 {
