@@ -201,7 +201,7 @@ if state != "Begin_Intro" &amp;&amp; state != "Intro" &amp;&amp; state != "Dead"
               if mouse_check_button(mb_left) {
                      if ammo &gt; 0 {
                             if instance_exists(obj_controller) {
-                                   obj_controller.stats_shots_fired += 1;
+                                   obj_controller.stats[? "shots_fired"] += 1;
                             }
                             can_recoil = 1;
                             recoil_dir = 1;
@@ -324,7 +324,7 @@ if can_get_hit = 0 {
        if other.creator != object_get_name(object_index) {
               can_get_hit = 0;
               hp -= other.damage;
-              with (other) instance_destroy();
+              instance_destroy(other);
        }
 }
 </string>

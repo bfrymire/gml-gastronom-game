@@ -64,11 +64,13 @@ can_button_hover = 0;
 button_time = 0;
 
 // Stats to show on Game Over screen
-stats_shots_fired = 0;
-stats_shots_hit = 0;
-stats_time_alive = 0;
-stats_wave = 1;
-stats_damage_dealt = 0;
+stats = ds_map_create();
+stats[? "shots_fired"] = 0;
+stats[? "shots_hit"] = 0;
+stats[? "time_alive"] = 0;
+stats[? "wave"] = 1;
+stats[? "damage_dealt"] = 0;
+
 </string>
           </argument>
         </arguments>
@@ -162,7 +164,7 @@ if room = room0 {
        }
        if instance_exists(obj_player) {
               if obj_player.hp &gt; 0 &amp;&amp; (obj_player.state != "Dead" || obj_player.state != "Intro" || obj_player.state != "Begin_Intro") {
-                     stats_time_alive += 1;
+                     stats[? "time_alive"] += 1;
               }
               if obj_player.state = "Dead" &amp;&amp; obj_player.y &lt;= -64 {
                      // Starting to display background
@@ -177,22 +179,22 @@ if room = room0 {
                                                  if instance_exists(obj_player) {
                                                         obj_player.state = "Begin_Intro";
                                                  }
-                                                 with (obj_controller) {
-                                                        stats_shots_fired = 0;
-                                                        stats_shots_hit = 0;
-                                                        stats_time_alive = 0;
-                                                        stats_wave = 1;
-                                                        stats_damage_dealt = 0;
-                                                 }
-                                                 with (obj_enemy) instance_destroy();
-                                                 with (obj_bullet) instance_destroy();
-                                                 with (obj_casing) instance_destroy();
-                                                 with (obj_combat_text) instance_destroy();
+                                                stats[? "shots_fired"] = 0;
+                                                stats[? "shots_hit"] = 0;
+                                                stats[? "time_alive"] = 0;
+                                                stats[? "wave"] = 1;
+                                                stats[? "damage_dealt"] = 0;
+                                                 instance_destroy(obj_enemy);
+                                                 instance_destroy(obj_bullet);
+                                                 instance_destroy(obj_casing);
+                                                 instance_destroy(obj_combat_text);
                                                  audio_play_sound(snd_select,0,0);
                                                  can_button_hover = 0;
                                                  go_bg_alpha = 0;
                                           }
-                                   } else can_button_hover = 0;
+                                   } else {
+                                        can_button_hover = 0;
+                                   }
                             }
                      }
               }
@@ -215,7 +217,10 @@ if can_button_hover = 1 {
        if button_timer = 1 {
               audio_play_sound(snd_hover,0,0);
        }
-} else button_timer = 0;
+} else {
+    button_timer = 0;
+}
+
 </string>
           </argument>
         </arguments>
@@ -253,10 +258,12 @@ if instance_exists(obj_player) {
               draw_sprite(spr_lollipop,0,view_xview[0]+11+(sprite_get_width(spr_hud_heart)*i)+(2*i),view_yview[0]+12);
        }*/
        // var half_hp = floor(obj_player.hp*0.5) + 1;
-       for(var i = 0; i &lt; floor(obj_player.hp*0.5)+1; i++) {
-              if i != floor(obj_player.hp*0.5) {
+       for(var i = 0; i &lt; floor(obj_player.hp * 0.5) + 1; i++) {
+              if i != floor(obj_player.hp * 0.5) {
                      draw_sprite(spr_hud_heart,0,view_xview[0]+11+(sprite_get_width(spr_hud_heart)*i)+(2*i),view_yview[0]+12);
-              } else draw_sprite_part(spr_hud_heart,0,0,0,sprite_get_width(spr_hud_heart) * (obj_player.hp * 0.5 mod 1),sprite_get_height(spr_hud_heart),view_xview[0]+11+(sprite_get_width(spr_hud_heart)*i)+(2*i),view_yview[0]+12);
+              } else {
+                draw_sprite_part(spr_hud_heart,0,0,0,sprite_get_width(spr_hud_heart) * (obj_player.hp * 0.5 mod 1),sprite_get_height(spr_hud_heart),view_xview[0]+11+(sprite_get_width(spr_hud_heart)*i)+(2*i),view_yview[0]+12);
+              }
        }
        scr_draw_text_outlined(view_xview[0]+11,view_yview[0]+12+32,"hp: " + string(obj_player.hp),1);
        scr_draw_text_outlined(view_xview[0]+11,view_yview[0]+12+64,"modified hp: " + string(floor(obj_player.hp*0.5)+1),1);
@@ -323,39 +330,43 @@ if go_bg_alpha &gt; 0 {
               stats_text[0] = "";
               stats_text[1] = "";
               stats_text[0] += "Run Time: #";
-              var stats_seconds = string(floor(stats_time_alive/60));
+              var stats_seconds = string(floor(stats[? "time_alive"] / 60));
               if string_length(stats_seconds) = 1 {
                      stats_seconds = "0" + stats_seconds;
               }
-              var stats_minutes = string(floor(stats_time_alive/60/60));
+              var stats_minutes = string(floor(stats[? "time_alive"] / 60 / 60));
               if string_length(stats_minutes) = 1 {
                      stats_minutes = "0" + stats_minutes;
               }
               stats_text[1] += stats_minutes + ":" + stats_seconds + "#";
               stats_text[0] += "Wave Reached: #";
-              stats_text[1] += "Wave " + string(stats_wave) + "#";
+              stats_text[1] += "Wave " + string(stats[? "wave"]) + "#";
               stats_text[0] += "Hit Accuracy: #";
-              if stats_shots_fired &gt; 0 {
-                     stats_text[1] += string(stats_shots_hit/stats_shots_fired*100) + "%#";
-              } else stats_text[1] += "0%#";
+              if stats[? "shots_fired"] &gt; 0 {
+                     stats_text[1] += string(stats[? "shots_hit"] / stats[? "shots_fired"] * 100) + "%#";
+              } else {
+                stats_text[1] += "0%#";
+              }
               stats_text[0] += "Total Damage Dealt: #";
-              stats_text[1] += string(stats_damage_dealt);
+              stats_text[1] += string(stats[? "damage_dealt"]);
               draw_set_halign(fa_right);
               draw_set_font(fnt_candal14);
-              draw_text(room_width/2+37,300,string(stats_text[0]));
+              draw_text(room_width / 2 + 37, 300, string(stats_text[0]));
               draw_set_halign(fa_left);
-              draw_text(room_width/2+37,300,string(stats_text[1]));
+              draw_text(room_width / 2 + 37, 300, string(stats_text[1]));
               draw_set_font(-1);
               draw_set_color(c_black);
               if mouse_x = clamp(mouse_x,room_width/2-sprite_get_width(spr_retry)/2,room_width/2+sprite_get_width(spr_retry)/2) &amp;&amp; mouse_y = clamp(mouse_y,425,425+sprite_get_height(spr_retry)) {
                      var set_index = 1;
-              } else set_index = 0;
-              draw_sprite(spr_retry,set_index,room_width/2-sprite_get_width(spr_retry)/2,425);
+              } else {
+                set_index = 0;
+              }
+              draw_sprite(spr_retry, set_index, room_width / 2 - sprite_get_width(spr_retry) / 2, 425);
        }
 }
 
 // Debugging
-if debug == 1 {
+if debug {
        var debug_text = "";
        debug_text += "// Debug Mode //" + "##";
        debug_text += "debug_text: " + string(debug) + "#";
@@ -373,8 +384,8 @@ if debug == 1 {
        }
        debug_text += "num enemies: " + string(instance_number(obj_enemy)) + "#";
        debug_text += "room_name: " + string(room_get_name(room)) + "#";
-       debug_text += string(working_directory) + "#";
-       draw_text(96,10,debug_text);
+       debug_text += "working dir: " + string(working_directory) + "#";
+       draw_text(96, 10, debug_text);
 }
 </string>
           </argument>
