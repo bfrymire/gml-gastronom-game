@@ -207,7 +207,9 @@ if state = "Dead" {
 if keyboard_check_pressed(ord("T")) {
        if can_tween = 1 {
               can_tween = 0;
-       } else can_tween = 1;
+       } else {
+            can_tween = 1;
+       }
 }
 
 // Possible states: "Fall", "Land", "Jump", "Dead", "Intro", "Begin_Intro"

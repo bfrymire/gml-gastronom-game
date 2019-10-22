@@ -161,6 +161,7 @@
     <object>objects\obj_main_menu</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_init</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_character_select</room>
     <room>rooms\rm_transition</room>
