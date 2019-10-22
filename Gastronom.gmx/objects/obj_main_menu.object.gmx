@@ -132,6 +132,11 @@ if menu_index = 0 {
                             button_play_index = 0;
                             audio_play_sound(snd_select,0,0);
                             // Go to game
+                            if room_exists(room_next(room)) {
+                                room_goto_next();
+                            } else {
+                                room_goto(0);
+                            }
                      }
               } else button_play_index = 0;
               // Options Button

@@ -161,12 +161,12 @@
     <object>objects\obj_main_menu</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
     <room>rooms\rm_main_menu</room>
     <room>rooms\rm_character_select</room>
     <room>rooms\rm_transition</room>
     <room>rooms\rm_gameover</room>
     <room>rooms\rm_test</room>
+    <room>rooms\room0</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

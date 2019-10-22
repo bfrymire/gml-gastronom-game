@@ -25,16 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>can_create = 0;
-
-// initiate variables
+            <string>// initiate variables
 act[0] = 0;
 act[1] = 0;
 for(var i = 0; i &lt; 4; i++) {
        for(var ii = 0; ii &lt; 2; ii++) {
               // food_list[0,0] = hovered
               // food_list[0,1] = selected
-              food_list[i,ii] = 0;
+              food_list[i, ii] = 0;
        }
        arm_place[i] = 0;
 }
@@ -69,17 +67,7 @@ plate_y = 190 + floor(sprite_get_height(spr_plate)/2);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// If can_create
-if can_create = 1 {
-       // show_message("Can create.");
-       character = instance_create(room_width/2,-64,obj_player);
-       character.state = "Intro";
-       character.player_name = selected_char;
-       instance_destroy();
-}
-
-
-// Player has control of arm
+            <string>// Player has control of arm
 
 // food_list[0,0] = hovered
 // food_list[0,1] = selected
@@ -152,14 +140,22 @@ if act[0] = 4 {
        } else {
               // room transition
               act[0] = -1;
-              can_create = 1;
-              persistent = 1;
+              character = instance_create(room_width/2,-64,obj_player);
+              /*character.state = "Intro";
+              character.player_name = selected_char;
+              character.persistent = 1;*/
+              with (character) {
+                    state = "Intro";
+                    player_name = other.selected_char;
+                    persistent = true;
+              }
               // room_goto_next();
               room_goto(room0); // The name of this room might change, so expect an error...
        }
        arm_place[0] += (arm_place[2] - arm_place[0]) * 0.05;
        arm_place[1] += (arm_place[3] - arm_place[1]) * 0.05;
 }
+
 </string>
           </argument>
         </arguments>
