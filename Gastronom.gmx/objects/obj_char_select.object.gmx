@@ -141,14 +141,9 @@ if act[0] = 4 {
               // room transition
               act[0] = -1;
               character = instance_create(room_width/2,-64,obj_player);
-              /*character.state = "Intro";
+              character.state = "Intro";
               character.player_name = selected_char;
-              character.persistent = 1;*/
-              with (character) {
-                    state = "Intro";
-                    player_name = other.selected_char;
-                    persistent = true;
-              }
+              character.persistent = 1;
               // room_goto_next();
               room_goto(room0); // The name of this room might change, so expect an error...
        }
