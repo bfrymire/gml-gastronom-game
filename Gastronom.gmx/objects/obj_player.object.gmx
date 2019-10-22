@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>player_name = choose("broccoli", "donut", "corn", "tofu");
+            <string>player_names[0] = "broccoli";
+player_names[1] = "donut";
+player_names[2] = "corn";
+player_names[3] = "tofu";
+player_name = player_names[irandom_range(0, array_length_1d(player_names) - 1)];
 
 // Defining Character assets
 scr_player_assets();
@@ -46,6 +50,7 @@ reload_time = 0;
 reload_hud_alpha = 0;
 can_shoot = 1;
 shoot_time = 0;
+gun_dir = 0;
 
 // Other possible states: "Fall", "Land", "Jump", "Dead", "Intro"
 state = "Begin_Intro";
@@ -69,6 +74,31 @@ recoil_angle_max = 125;
 recoil_amount = 0;
 recoil_dir = 1;
 recoil_max = 125;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if persistent {
+    persistent = false;
+}
 </string>
           </argument>
         </arguments>
@@ -177,7 +207,9 @@ if state = "Dead" {
 if keyboard_check_pressed(ord("T")) {
        if can_tween = 1 {
               can_tween = 0;
-       } else can_tween = 1;
+       } else {
+            can_tween = 1;
+       }
 }
 
 // Possible states: "Fall", "Land", "Jump", "Dead", "Intro", "Begin_Intro"
@@ -201,7 +233,7 @@ if state != "Begin_Intro" &amp;&amp; state != "Intro" &amp;&amp; state != "Dead"
               if mouse_check_button(mb_left) {
                      if ammo &gt; 0 {
                             if instance_exists(obj_controller) {
-                                   obj_controller.stats_shots_fired += 1;
+                                   obj_controller.stats[? "shots_fired"] += 1;
                             }
                             can_recoil = 1;
                             recoil_dir = 1;
@@ -324,7 +356,7 @@ if can_get_hit = 0 {
        if other.creator != object_get_name(object_index) {
               can_get_hit = 0;
               hp -= other.damage;
-              with (other) instance_destroy();
+              instance_destroy(other);
        }
 }
 </string>
@@ -356,7 +388,9 @@ if state != "Dead" {
        var eyes_sprite = spr_eyes;
        if mouse_x &gt; x {
               image_xscale = 1;
-       } else image_xscale = -1;
+       } else {
+            image_xscale = -1;
+       }
 } else {
        var eyes_sprite = spr_eyes_dead;
 }
@@ -364,7 +398,9 @@ if state != "Dead" {
 // Deciding image_yscale of the gun
 if gun_dir &lt; 90 || gun_dir &gt; 270 {
        var gun_yscale = 1;
-} else var gun_yscale = -1;
+} else {
+       var gun_yscale = -1;
+}
 
 // Character will falsh while invincible
 if can_get_hit = 0 {
@@ -381,8 +417,10 @@ if can_draw_char = 1 {
        // old eye code - draw_sprite_ext(eyes_sprite,0,x + (image_xscale * eye_origin_x),eye_origin_y,image_xscale, 1,image_angle,c_white,1);  // Eyes sprite only
        if eye_type = 0 {
               draw_sprite_ext(eyes_sprite,0,eye_origin_x,eye_origin_y,1,1,image_angle,c_white,1);        // Eyes sprite only
-       } else if eye_type = 1 {
-              var eye 
+       } else {
+            if eye_type = 1 {
+              var eye;
+            }
        }
        
        // Drawing eyes - Feature got ICED!!
@@ -413,7 +451,7 @@ if reload_time != 0 {
 }
 
 if instance_exists(obj_controller) {
-       if obj_controller.debug = 1 {
+       if obj_controller.debug {
        
               //draw_text(x+32,y-32,string(hit_time_max) + " / " + string(hit_time));
               //if !can_get_hit draw_text(x+32,y-16,string(math));
@@ -424,7 +462,9 @@ if instance_exists(obj_controller) {
               debug_text += string(hit_time_max) + " / " + string(hit_time) + "#";
               if !can_get_hit {
                      debug_text += string(hit_time mod floor(hit_time_max / (hit_flashes * 2))+1) + "#";
-              } else debug_text += "0#"
+              } else {
+                    debug_text += "0#";
+              }
               //debug_text += string((hit_time_max-hit_time) / (hit_time_max/hit_flashes)) + "#";
               //debug_text += string(hit_time mod hit_flashes) + "#"; // this worked... sort of...
               //debug_text += string(hit_time_max/hit_flashes) + "#";
