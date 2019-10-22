@@ -132,6 +132,11 @@ if menu_index = 0 {
                             button_play_index = 0;
                             audio_play_sound(snd_select,0,0);
                             // Go to game
+                            if room_exists(room_next(room)) {
+                                room_goto_next();
+                            } else {
+                                room_goto(0);
+                            }
                      }
               } else button_play_index = 0;
               // Options Button
@@ -360,9 +365,11 @@ if options_height &gt; 0 {
        text_height += 25;
        draw_text(floor(surf_width/2),text_height,"OPTIONS");
        text_height += string_height("OPTIONS") + 33;
-       draw_set_color(c_red);
-       draw_line(0,text_height,room_width,text_height);
-       draw_set_color(c_white);
+       if obj_controller.debug {
+           draw_set_color(c_red);
+           draw_line(0,text_height,room_width,text_height);
+           draw_set_color(c_white);
+       }
        // Draw "MUSIC" text
        draw_set_halign(fa_left);
        draw_set_font(fnt_strenuous22);
@@ -401,12 +408,14 @@ if options_height &gt; 0 {
 // Draw cursor
 scr_draw_sprite_outline(spr_cursor,0,mouse_x,mouse_y,1,1,1,c_black,2);
 draw_sprite(spr_cursor,0,mouse_x,mouse_y);
-draw_set_alpha(0.5);
-draw_set_color(c_red);
-draw_line(mouse_x,mouse_y-32,mouse_x,mouse_y+32);
-draw_line(mouse_x-32,mouse_y,mouse_x+32,mouse_y);
-draw_set_color(c_black);
-draw_set_alpha(1);
+if obj_controller.debug {
+    draw_set_alpha(0.5);
+    draw_set_color(c_red);
+    draw_line(mouse_x,mouse_y-32,mouse_x,mouse_y+32);
+    draw_line(mouse_x-32,mouse_y,mouse_x+32,mouse_y);
+    draw_set_color(c_black);
+    draw_set_alpha(1);
+}
 
 // Draw quit animation fading box
 if quit_time &gt; 0 {
