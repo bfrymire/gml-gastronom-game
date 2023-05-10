@@ -7,7 +7,7 @@ sprite_list[2] = spr_bacterium2;
 sprite_list[3] = spr_bug;
 sprite_list[4] = spr_cluster;
 
-var list_number = floor(random(array_length_1d(sprite_list))); // Randomly selecting a number from sprite_list[]
+var list_number = floor(random(array_length(sprite_list))); // Randomly selecting a number from sprite_list[]
 enemy = list_number + 1;                                       // Selecting the enemy
 sprite_index = sprite_list[list_number];                       // Selecting the sprite
 image_index = floor(random(image_number));                     // Randomly selecting an image index

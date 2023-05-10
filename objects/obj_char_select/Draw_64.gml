@@ -1,7 +1,7 @@
-for(var i = 0; i < array_length_1d(food_char_list); i++) {
+for(var i = 0; i < array_length(food_char_list); i++) {
        if food_list[i,1] = 0 || act[0] < 3 {
-              var place_x = room_width/2 + lengthdir_x(90,(360/array_length_1d(food_char_list))*i);
-              var place_y = plate_y + lengthdir_y(90,(360/array_length_1d(food_char_list))*i);
+              var place_x = room_width/2 + lengthdir_x(90,(360/array_length(food_char_list))*i);
+              var place_y = plate_y + lengthdir_y(90,(360/array_length(food_char_list))*i);
               if food_list[i,0] = 1 {
                      // draw popup on hover
                      if act[0] = 0 {

@@ -2,7 +2,7 @@ player_names[0] = "broccoli";
 player_names[1] = "donut";
 player_names[2] = "corn";
 player_names[3] = "tofu";
-player_name = player_names[irandom_range(0, array_length_1d(player_names) - 1)];
+player_name = player_names[irandom_range(0, array_length(player_names) - 1)];
 
 // Defining Character assets
 scr_player_assets();

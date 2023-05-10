@@ -1,7 +1,7 @@
 // Draw Food on Plate
 draw_sprite(spr_plate,0,room_width/2-floor(sprite_get_width(spr_plate)/2),190);
 
-for(var i = 0; i < array_length_1d(food_char_list); i++) {
+for(var i = 0; i < array_length(food_char_list); i++) {
        if food_list[i,1] = 0 || act[0] < 3 {
               switch(i) {
                      case 0:
@@ -21,8 +21,8 @@ for(var i = 0; i < array_length_1d(food_char_list); i++) {
                             var char_angle = 90;
                             break;
               }
-              var place_x = room_width/2 + lengthdir_x(90,(360/array_length_1d(food_char_list))*i);
-              var place_y = plate_y + lengthdir_y(90,(360/array_length_1d(food_char_list))*i);
+              var place_x = room_width/2 + lengthdir_x(90,(360/array_length(food_char_list))*i);
+              var place_y = plate_y + lengthdir_y(90,(360/array_length(food_char_list))*i);
               if food_list[i,0] = 1 {
                      // draw the outline and popup on hover, else draw the outline
                      scr_draw_sprite_outline(char_sprite,0,place_x,place_y,1,1,char_angle,c_black,2);
