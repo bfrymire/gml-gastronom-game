@@ -2,7 +2,7 @@ wave = 1;
 can_spawn = 1;
 num_enemies = 3;
 spawn_delay = 5;
-wave_delay_max = room_speed * 3;
+wave_delay_max = game_get_speed(gamespeed_fps) * 3;
 wave_delay = 0
 
 // Can spawn

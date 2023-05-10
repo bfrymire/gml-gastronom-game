@@ -139,7 +139,7 @@ if obj_controller.debug {
 // Draw quit animation fading box
 if quit_time > 0 {
        draw_set_color(c_black);
-       draw_set_alpha(quit_time / (room_speed * 1));
+       draw_set_alpha(quit_time / (game_get_speed(gamespeed_fps) * 1));
        draw_rectangle(0,0,room_width,room_height,0);
        draw_set_alpha(1);
 }

@@ -21,7 +21,7 @@ draw_rectangle(0, window_get_height() - 80, window_get_width(), window_get_heigh
 
 draw_set_font(fnt_gui);
 draw_set_color(c_black);
-draw_set_halign(fa_middle);
+draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 

@@ -31,7 +31,7 @@ state = "Begin_Intro";
 // Temporary Invincibility after getting hit
 can_get_hit = 1;
 hit_time = 0;
-hit_time_max = room_speed * 1; // change to after testing: room_speed * 0.5;
+hit_time_max = game_get_speed(gamespeed_fps) * 1; // change to after testing: game_get_speed(gamespeed_fps) * 0.5;
 hit_flashes = 3; // Number of times the character will flash after hit
 
 // Character Customization

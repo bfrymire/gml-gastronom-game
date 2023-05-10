@@ -20,7 +20,6 @@ volume_music = 1;    // Volume level for just music
 volume_sound = 1;    // Volume level for just sound effects
 volume_mute = 0;     // Boolean for muting all sounds*/
 
-room_speed = 60;     // 60 FPS
 
 // Creating walls
 if room = room0 {

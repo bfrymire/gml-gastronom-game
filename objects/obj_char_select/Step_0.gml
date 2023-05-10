@@ -36,7 +36,7 @@ if act[0] = 1 {
        if arm_place[0] = arm_place[2] && arm_place[1] = arm_place[3] {
               arm_place[2] = room_width + 32;
               arm_place[3] = room_height + 32;
-              act[1] = floor(room_speed * 0.75);
+              act[1] = floor(game_get_speed(gamespeed_fps) * 0.75);
               act[0] = 2;
        }
 }
@@ -47,7 +47,7 @@ if act[0] = 2 {
               act[1] -= 1;
        } else {
               arm_index = 1;
-              act[1] = room_speed;
+              act[1] = game_get_speed(gamespeed_fps);
               act[0] = 3;
        }
 }
@@ -58,7 +58,7 @@ if act[0] = 3 {
               act[1] -= 1;
        } else {
               arm_index = 1;
-              act[1] = room_speed * 0.25;
+              act[1] = game_get_speed(gamespeed_fps) * 0.25;
               act[0] = 4;
        }
 }

@@ -13,7 +13,7 @@ function scr_player_assets() {
 	              gun_type = "rifle";
 	              gun_sprite = spr_rifle;
 	              ammo_max = 3;
-	              reload_time_max = room_speed * 1;
+	              reload_time_max = game_get_speed(gamespeed_fps) * 1;
 	              shoot_time_max = 15;
 	              bullet_sprite = spr_rifle_bullet_head;
 	              bullet_case = spr_rifle_bullet_case;
@@ -32,7 +32,7 @@ function scr_player_assets() {
 	              gun_type = "revolver";
 	              gun_sprite = spr_revolver;
 	              ammo_max = 5;
-	              reload_time_max = room_speed * 2.3;
+	              reload_time_max = game_get_speed(gamespeed_fps) * 2.3;
 	              shoot_time_max = 7;
 	              bullet_sprite = spr_pistol_bullet_head;
 	              bullet_case = spr_pistol_bullet_case;
@@ -51,7 +51,7 @@ function scr_player_assets() {
 	              gun_type = "shotgun";
 	              gun_sprite = spr_shotgun;
 	              ammo_max = 2;
-	              reload_time_max = room_speed * 1;
+	              reload_time_max = game_get_speed(gamespeed_fps) * 1;
 	              shoot_time_max = 15;
 	              bullet_sprite = spr_shotgun_bullet_head;
 	              bullet_case = choose(spr_shotgun_bullet_full,spr_shotgun_bullet_full_broken);
@@ -70,7 +70,7 @@ function scr_player_assets() {
 	              gun_type = "pistol";
 	              gun_sprite = spr_pistol;
 	              ammo_max = 12;
-	              reload_time_max = room_speed * 1;
+	              reload_time_max = game_get_speed(gamespeed_fps) * 1;
 	              shoot_time_max = 15;
 	              bullet_sprite = spr_pistol_bullet_head;
 	              bullet_case = spr_pistol_bullet_case;

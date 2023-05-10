@@ -4,9 +4,6 @@ if keyboard_check(vk_control) {
               room_restart();
        }
 }
-if mouse_check_button(mb_right) {
-       room_speed = 20;
-} else room_speed = 60;
 
 // Bar animations
 if bar_height != menu_grid[1,menu_index] {
@@ -78,7 +75,7 @@ if menu_index = 0 {
               if keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace) {
                      quit_time = 0;
               }
-              if quit_time >= room_speed * 1 {
+              if quit_time >= game_get_speed(gamespeed_fps) * 1 {
                      game_end();
               }
        }

@@ -36,12 +36,12 @@ tangle_dir = 1;
 ammo_max = 7;
 ammo = ammo_max;
 reload_time = 0;
-reload_time_max = room_speed * 1;
+reload_time_max = game_get_speed(gamespeed_fps) * 1;
 gun_dir = 0;
 can_shoot = 0;
 shoot_time = 0;
 // Previous shoot_time_max set by Stein
-shoot_time_max = choose(room_speed * 0.45, room_speed * 0.3, room_speed * 0.5, 10);
+shoot_time_max = choose(game_get_speed(gamespeed_fps) * 0.45, game_get_speed(gamespeed_fps) * 0.3, game_get_speed(gamespeed_fps) * 0.5, 10);
 // shoot_time_max = 15;     // Original shoot_time_max
 
 /// Movement

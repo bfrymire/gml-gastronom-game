@@ -5,7 +5,6 @@ if right_screen == 1 {
 }
 
 menu_state = "Main";
-room_speed = 60;
 
 // Button Hovers
 button_play_index = 0;

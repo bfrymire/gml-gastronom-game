@@ -51,17 +51,6 @@ if instance_exists(obj_player) {
        }
 }
 
-// Fake "bullet time"
-if mouse_check_button(mb_right) {
-       if keyboard_check(vk_control) {
-              room_speed = 120;
-       } else {
-            room_speed = 20;
-       }
-} else {
-    room_speed = 60;
-}
-
 /*
 menu_level[0] = 0;   // Current top menu level
 menu_level[1] = 0;   // Current sub menu level
