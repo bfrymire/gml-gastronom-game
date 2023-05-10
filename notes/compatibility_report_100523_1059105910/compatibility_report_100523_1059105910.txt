@@ -1,0 +1,186 @@
+Converting GML script: ${project_dir}\scripts\room_goto_transition\room_goto_transition.gml
+Converted description /// @description room_goto_transition(room, transition, [steps]);/// @param room
+/// @param  transition
+/// @param  [steps]
+
+Converting GML script: ${project_dir}\scripts\smooth_approach\smooth_approach.gml
+Converted description /// @description smooth_approach(current, target, speed[0-1])/// @param current
+/// @param  target
+/// @param  speed[0-1]
+
+Converting GML script: ${project_dir}\scripts\angle_approach\angle_approach.gml
+Converted description /// @description angle_approach(current, target, turn_speed)/// @param current
+/// @param  target
+/// @param  turn_speed
+
+Converting GML script: ${project_dir}\scripts\approach\approach.gml
+Converted description /// @description approach(current, target, amount)/// @param current
+/// @param  target
+/// @param  amount
+
+!!! Font fnt_candal20 uses a font (Candal) not installed on this system - Font has NOT been regenerated
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\fnt_candal20\fnt_candal20.gms1.png
+!!! Font fnt_candal14 uses a font (Candal) not installed on this system - Font has NOT been regenerated
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\fnt_candal14\fnt_candal14.gms1.png
+!!! Font fnt_strenuous40 uses a font (Strenuous Bl) not installed on this system - Font has NOT been regenerated
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\fnt_strenuous40\fnt_strenuous40.gms1.png
+!!! Font fnt_strenuous22 uses a font (Strenuous Bl) not installed on this system - Font has NOT been regenerated
+GameMaker Studio 1 font texture has been backed up at ${project_dir}\fonts\fnt_strenuous22\fnt_strenuous22.gms1.png
+Converting GML script: ${project_dir}\objects\obj_controller\Step_0.gml
+Converted builtin - line 123: view_xview[0] = -screen_shake_amount+floor(random(screen_shake_amount * 2)) -> __view_set( e__VW.XView, 0, -screen_shake_amount+floor(random(screen_shake_amount * 2)) )
+Converted builtin - line 126: view_xview[0] = 0 -> __view_set( e__VW.XView, 0, 0 )
+Converted builtin - line 124: view_yview[0] = (-screen_shake_amount+floor(random(screen_shake_amount * 2)))/2 -> __view_set( e__VW.YView, 0, (-screen_shake_amount+floor(random(screen_shake_amount * 2)))/2 )
+Converted builtin - line 127: view_yview[0] = 0 -> __view_set( e__VW.YView, 0, 0 )
+Converted string - line 13: "\Screens\Screen" -> "\\Screens\\Screen"
+
+Converting GML script: ${project_dir}\objects\obj_controller\Draw_64.gml
+Converted builtin - line 18: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 20: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 23: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 24: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 27: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 18: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 20: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 23: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 24: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 28: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 28: view_hview[0] -> __view_get( e__VW.HView, 0 )
+
+Converting GML script: ${project_dir}\objects\obj_controller\Draw_0.gml
+Converted builtin - line 18: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 18: view_xview[0] -> __view_get( e__VW.XView, 0 )
+Converted builtin - line 18: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 18: view_yview[0] -> __view_get( e__VW.YView, 0 )
+Converted builtin - line 18: view_wview[0] -> __view_get( e__VW.WView, 0 )
+Converted builtin - line 18: view_hview[0] -> __view_get( e__VW.HView, 0 )
+
+Converting GML script: ${project_dir}\objects\obj_gm48\Create_0.gml
+Converted string - line 38: "\gm48logo_default.png" -> "\\gm48logo_default.png"
+Converted string - line 39: "\gm48logo_mousein.png" -> "\\gm48logo_mousein.png"
+
+Converting GML script: ${project_dir}\objects\obj_gm48\Other_62.gml
+Converted string - line 44: "\gm48logo_default.png" -> "\\gm48logo_default.png"
+Converted string - line 45: "\gm48logo_default.png" -> "\\gm48logo_default.png"
+Converted string - line 50: "\gm48logo_mousein.png" -> "\\gm48logo_mousein.png"
+Converted string - line 51: "\gm48logo_mousein.png" -> "\\gm48logo_mousein.png"
+
+Converting GML script: ${project_dir}\objects\obj_gm48\Draw_0.gml
+Converted builtin - line 10: view_wview[0] -> __view_get( e__VW.WView, 0 )
+Converted builtin - line 22: view_wview[0] -> __view_get( e__VW.WView, 0 )
+
+Converting GML script: ${project_dir}\objects\obj_casing\Step_0.gml
+Converted builtin - line 5: view_yview[0] -> __view_get( e__VW.YView, 0 )
+
+Converting GML script: ${project_dir}\objects\obj_init\Create_0.gml
+Converted description /// @description  Set alarm to start transition
+
+Converting GML script: ${project_dir}\objects\obj_init\Alarm_0.gml
+Converted description /// @description Go to next room, with transition
+
+Converting GML script: ${project_dir}\objects\sys_transition\Create_0.gml
+Converted builtin - line 33: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 33: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 32: view_hport[0] -> __view_get( e__VW.HPort, 0 )
+Converted description /// @description  Initialize Variables
+
+Converting GML script: ${project_dir}\objects\sys_transition\Destroy_0.gml
+Converted description /// @description  Delete surfaces
+
+Converting GML script: ${project_dir}\objects\sys_transition\Alarm_0.gml
+Converted builtin - line 5: view_xport[0] -> __view_get( e__VW.XPort, 0 )
+Converted builtin - line 18: view_xport[0] -> __view_get( e__VW.XPort, 0 )
+Converted builtin - line 6: view_yport[0] -> __view_get( e__VW.YPort, 0 )
+Converted builtin - line 19: view_yport[0] -> __view_get( e__VW.YPort, 0 )
+Converted builtin - line 7: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 20: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 8: view_hport[0] -> __view_get( e__VW.HPort, 0 )
+Converted builtin - line 21: view_hport[0] -> __view_get( e__VW.HPort, 0 )
+Converted description /// @description  Stripe Effect - Finish array and start animation
+
+Converting GML script: ${project_dir}\objects\sys_transition\Step_1.gml
+Converted builtin - line 31: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 37: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted description /// @description  Timer increase
+
+Converting GML script: ${project_dir}\objects\sys_transition\Other_10.gml
+Converted description /// @description  Change room (Fade Transition)/// @param Fade Transition
+
+Converting GML script: ${project_dir}\objects\sys_transition\Draw_75.gml
+Converted description /// @description  Update surfaces for Slide transition
+
+Converting GML script: ${project_dir}\objects\sys_transition\Draw_64.gml
+Converted builtin - line 15: view_xport[0] -> __view_get( e__VW.XPort, 0 )
+Converted builtin - line 16: view_yport[0] -> __view_get( e__VW.YPort, 0 )
+Converted builtin - line 17: view_wport[0] -> __view_get( e__VW.WPort, 0 )
+Converted builtin - line 18: view_hport[0] -> __view_get( e__VW.HPort, 0 )
+Converted description /// @description  Draw Transitions
+
+Converting GML script: ${project_dir}\objects\imported_obj_controller\Create_0.gml
+Converted description /// @description  Initialize variables
+
+Converting GML script: ${project_dir}\objects\imported_obj_controller\Step_0.gml
+Converted description /// @description  Check if any keys are being pressed
+
+Converting GML script: ${project_dir}\objects\imported_obj_controller\Other_10.gml
+Converted description /// @description  Define which transition is currently being used
+
+Converting GML script: ${project_dir}\objects\imported_obj_controller\Draw_64.gml
+Converted description /// @description  Draw GUI for the demo
+
+Converting GML script: ${project_dir}\objects\obj_flesh\Collision_563dbc78-9a1f-4749-a7ea-e4545ef01064.gml
+Converted description /// @description 
+
+Converting GML script: ${project_dir}\objects\obj_start\Create_0.gml
+Converted description /// @description Prevent animation
+
+Converting GML script: ${project_dir}\objects\obj_start\Alarm_0.gml
+Converted description /// @description  Go to actual level
+
+Converting GML script: ${project_dir}\objects\obj_rate\Create_0.gml
+Converted description /// @description Prevent animation
+
+Converting GML script: ${project_dir}\objects\obj_rate\Step_0.gml
+Converted description /// @description Change sprite if mouse touches it
+
+Converting GML script: ${project_dir}\objects\obj_retry\Create_0.gml
+Converted description /// @description Prevent animation
+
+Converting GML script: ${project_dir}\objects\obj_retry\Alarm_0.gml
+Converted description /// @description Transfer rooms
+
+Converting GML script: ${project_dir}\objects\obj_retry\Step_0.gml
+Converted description /// @description Change sprite if mouse touches it
+
+Converting GML script: ${project_dir}\objects\obj_quit\Create_0.gml
+Converted description /// @description Prevent animation
+
+Converting GML script: ${project_dir}\objects\obj_quit\Alarm_0.gml
+Converted description /// @description  End game
+
+Converting GML script: ${project_dir}\objects\obj_quit\Step_0.gml
+Converted description /// @description Change sprite if mouse touches it
+
+Missing audiogroup for sound: 'snd_rifle' - setting to default audio group
+Missing audiogroup for sound: 'snd_heal' - setting to default audio group
+Missing audiogroup for sound: 'snd_hover' - setting to default audio group
+Missing audiogroup for sound: 'snd_hurt' - setting to default audio group
+Missing audiogroup for sound: 'snd_pistol' - setting to default audio group
+Missing audiogroup for sound: 'snd_reload' - setting to default audio group
+Missing audiogroup for sound: 'snd_revolver' - setting to default audio group
+Missing audiogroup for sound: 'snd_select' - setting to default audio group
+Missing audiogroup for sound: 'snd_shotgun' - setting to default audio group
+Missing audiogroup for sound: 'snd_ouroboros' - setting to default audio group
+Game speed set to 60
+Added compatibility script 'action/action_move.gml'
+Added compatibility script 'draw/draw_enable_alphablend.gml'
+Added compatibility script 'draw/draw_set_colour_write_enable.gml'
+Added compatibility script 'instance/instance_create.gml'
+Added compatibility script 'object/object_get_depth.gml'
+Added compatibility script 'sound/sound_volume.gml'
+Added compatibility script 'view/__view_get.gml'
+Added compatibility script 'view/__view_set.gml'
+Added compatibility script 'view/__view_set_internal.gml'
+Added compatibility script 'action/__init_action.gml'
+Added compatibility script 'view/__init_view.gml'
+Added compatibility script '__init_global.gml'
+Added compatibility script '__global_object_depths.gml'

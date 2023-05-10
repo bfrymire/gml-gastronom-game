@@ -1,0 +1,10 @@
+*.old.*
+*.yy.new
+
+___yyp_maker_trash
+
+*GMLive*
+*obj_gmlive*
+
+stitch.config.json
+tmp/
