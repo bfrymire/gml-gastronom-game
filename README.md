@@ -6,9 +6,9 @@ Gastronom is a shooter game where you play as a piece of food falling down a per
 
 ## About
 
-Gastronom was created for the 22nd gm(48) in 2018.
+Gastronom was created for the 22nd _gm(48)_ in 2018.
 
-Gastronom was originally created using Game Maker Studio v1.4.9999, but can easily be ported to Game Maker Studio 2.
+Gastronom was originally created using Game Maker Studio v1.4.9999. It was later ported to modern GameMaker 2.3+.
 
 ## Controls
 
@@ -22,4 +22,4 @@ Brent Frymire - Programming
 
 Rexter Day Tolentino - Art
 
-&copy; 2018
+&copy; 2017-2018
